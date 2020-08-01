@@ -3,6 +3,6 @@ from . import views
 from django.views.generic import TemplateView
 
 app_name='library'
-urlpatterns = {
+urlpatterns = [
     path('index/',views.index),
-}
+]
