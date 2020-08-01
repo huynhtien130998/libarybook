@@ -7,14 +7,14 @@ class BorrowedBookInLines (admin.TabularInline):
 
 @admin.register(Book)
 class BookAdmin (admin.ModelAdmin):
-    list_display = ('name_book', 'get_cates', 'get_authors', 'quantity_book','description' ,'get_status', 'image_preview')
+    list_display = ('name_book', 'description', 'get_cates', 'get_authors', 'quantity_book', 'get_status', 'image_preview')
     # fields = ['name_book', 'status', 'cate', 'quantity_book', 'author']
     ordering = ['name_book']
     list_filter = ('cate', 'author')
     #inlines = [BorrowBookInline]
     fieldsets = (
         ('Information', {
-            'fields': ('name_book', ('cate', 'author'),'description', 'image')
+            'fields': ('name_book', 'description', ('cate', 'author'), 'image')
         }),
         ('Availability', {
             'fields': [('quantity_book',)]
