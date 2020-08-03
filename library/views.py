@@ -22,5 +22,17 @@ def index(request):
         'book' : bookitem,
         'category' : cateitem,
         'paging' : bookpage,
+        'cateview':cate_view,
     }
     return render(request, "library/index.html",context)
+
+
+def cate_view(request, category_id):
+    cate_view= Category.objects.get(pk = category_id)
+    cateitem = Category.objects.all()
+
+    context1={
+        'cate':cate_view,
+        'catename': cateitem,
+    }
+    return render(request, "library/cateview.html", context1)

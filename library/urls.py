@@ -4,5 +4,6 @@ from django.views.generic import TemplateView
 
 app_name='library'
 urlpatterns = [
-    path('index/',views.index),
+    path('cateview/<int:category_id>',views.cate_view, name="view"),
+    path('index/',views.index, name="index"),
 ]
