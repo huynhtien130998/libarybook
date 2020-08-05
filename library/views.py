@@ -47,3 +47,9 @@ def cate_view(request, category_id):
         'paging2': bookpage2,
     }
     return render(request, "library/cateview.html", context1)
+
+from django.views import generic
+
+class BookDetailView(generic.DetailView):
+    """Generic class-based detail view for a book."""
+    model = Book
